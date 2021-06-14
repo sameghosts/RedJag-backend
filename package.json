@@ -1,0 +1,31 @@
+{
+  "name": "redjag-backend",
+  "version": "1.0.0",
+  "description": "red jaguar product club backend / server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sameghosts/RedJag-backend.git"
+  },
+  "author": "sameghosts",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sameghosts/RedJag-backend/issues"
+  },
+  "homepage": "https://github.com/sameghosts/RedJag-backend#readme",
+  "dependencies": {
+    "apollo-server-express": "^2.25.1",
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "graphql": "^15.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.12.13"
+  }
+}
