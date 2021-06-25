@@ -1,0 +1,26 @@
+make index
+
+mkdir: directives, resolves, typeDefs
+
+directives 
+  Authdirective
+
+resolvers 
+  index
+    greeting -  for server spoof
+    user - 
+    search - 
+    jobs -
+    todo - 
+    journal - 
+    reminders -
+
+typeDefs 
+  index
+    greeting -  for server spoof
+    user - 
+    search - 
+    jobs -
+    todo - 
+    journal - 
+    reminders -

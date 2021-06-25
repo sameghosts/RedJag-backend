@@ -1,0 +1,35 @@
+# # # 
+For now, I will send both SQL and NoSQL as two folders that have an index that is their export out and have a models level index to full export calling two different DB's for API
+
+
+will get check from M or G about this set up, also should ask J 
+
+models ___
+    |    |
+   NOS  SQL
+    |     |
+    #     * 
+
+
+
+# NOS 
+    |
+    file for each schema
+      [user, jobs, todo, journal, analytics, search]
+    |
+    index 2 export 
+
+* SQL
+  |
+  !!! Need to figure out deminished returns for using and 3rd party SQL management service like Hasura
+    vs is there a case where we are having n+1 queries?? not reall sure? 
+  |
+  models
+    [user, 
+        |
+        tracker_log----reminder (is this best at sql??)]
+        |
+        |
+        comparison_log
+  |     
+  migrations
