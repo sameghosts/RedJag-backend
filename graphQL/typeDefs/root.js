@@ -5,7 +5,6 @@ const { gql } = require('apollo-server-express')
 const root = gql`
   type Query {
     root:String
-    hello: String!
   }
   type Mutation{
     root:String

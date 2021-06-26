@@ -2,8 +2,8 @@ const { gql } = require('apollo-server-express');
 
 
 const hello = gql`
-  type Hello {
+  extend type Query {
     hello: String!
   }
 `
-module.exports = hello; 
+module.exports = hello;
