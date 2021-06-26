@@ -1,16 +1,17 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require('apollo-server-express')
 
-// Root = base definitions which will be expounded upon by all typeDef queries / mutations on specific modules
 
+// root is the base definitions which will be extended by all type def query and mutations on specific modules
 const root = gql`
   type Query {
     root:String
+    hello: String!
   }
   type Mutation{
     root:String
   }
-  type Subscription{
-    root:String
-  }
-  
-`
+  # type Subscription {
+  #   root:String
+  # }
+`;
+module.exports = root;

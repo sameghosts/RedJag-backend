@@ -1,3 +1,3 @@
-import hello from './hello'
+const hello = require('./hello')
 
-export default [hello];
+module.exports = [hello];

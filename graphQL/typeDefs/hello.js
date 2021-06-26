@@ -6,3 +6,4 @@ const hello = gql`
     hello: String!
   }
 `
+module.exports = hello; 
