@@ -20,7 +20,7 @@ typeDefs
     greeting -  for server spoof
     user - 
     search - 
-    jobs -
+    jobs -`
     todo - 
     journal - 
     reminders -
