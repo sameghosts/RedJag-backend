@@ -4,18 +4,12 @@ const EXPRESS = require('express');
 const { ApolloServer, gql } = require('apollo-server-express');
 
 //TODO: Set up GQL requirements
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
+const {
+  typeDefs, 
+  resolvers
+} = require('./graphQL')
 
-// Provide resolver functions for your schema fields
-const resolvers = {
-  Query: {
-    hello: () => 'Hello world!',
-  },
-};
+
 
 //TODO Instantiate App and structure
 const app = EXPRESS();
@@ -29,8 +23,6 @@ const app = EXPRESS();
 const SERVER = new ApolloServer({
   typeDefs: typeDefs,
   resolvers: resolvers,
-  //TODO: Check and add in directives
-  // schemaDirectives: schemaDirectives,
   playground: true,
   //TODO: check and add in context
   context: {}
