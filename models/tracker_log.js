@@ -22,7 +22,10 @@ module.exports = (sequelize, DataTypes) => {
     location: DataTypes.STRING,
     application_url: DataTypes.STRING,
     is_active: DataTypes.BOOLEAN,
-    end_result: DataTypes.ENUM
+    end_result: 
+    { type: DataTypes.ENUM,
+      values: ['pending', 'yes', 'maybe']
+    }
   }, {
     sequelize,
     modelName: 'tracker_log',
