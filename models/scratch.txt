@@ -1,35 +1,13 @@
-# # # 
-For now, I will send both SQL and NoSQL as two folders that have an index that is their export out and have a models level index to full export calling two different DB's for API
+user model 
 
+sequelize model:create --name user --attributes username:string,password:string,firstName:string,lastName:string,email:string
 
-will get check from M or G about this set up, also should ask J 
+comparison_log 
 
-models ___
-    |    |
-   NOS  SQL
-    |     |
-    #     * 
+sequelize model:create --name comparison_log --attributes user_id:integer,posts_list:string,keyword_results:string
 
+tracker_log
+sequelize model:create --name tracker_log --attributes user_id:integer,post_id:string,post_url:string,company:string,postion:string,location:string,application_url:string,is_active:boolean,end_result:enum
 
-
-# NOS 
-    |
-    file for each schema
-      [user, jobs, todo, journal, analytics, search]
-    |
-    index 2 export 
-
-* SQL
-  |
-  !!! Need to figure out deminished returns for using and 3rd party SQL management service like Hasura
-    vs is there a case where we are having n+1 queries?? not reall sure? 
-  |
-  models
-    [user, 
-        |
-        tracker_log----reminder (is this best at sql??)]
-        |
-        |
-        comparison_log
-  |     
-  migrations
+reminder
+sequelize model:create --name reminder --attributes tracker_id:integer,days_away:integer,date_created:date,contact_email:string,contact_name:string,contact_postion:string,contact_phone:integer,notes:string
