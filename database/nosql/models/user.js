@@ -1,5 +1,5 @@
 // Dependencies
-const { UniqueOperationNamesRule } = require('graphql');
+
 const mongoose =require('mongoose');
 
 // Instantiate Schema
@@ -16,7 +16,7 @@ const userProfile = new Schema({
 //User Schema
 const userSchema = newSchema({
 
-}, UniqueOperationNamesRule)
+}, options)
 
 // exports
 module.exports = mongoose.model('User', userSchema)
