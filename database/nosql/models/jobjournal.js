@@ -12,12 +12,13 @@ const options = {
 //Entry Subschema
 const jobEntrySchema = new Schema({
   jobTitle: String,
-  postId: String,
-  postUrl: String,
+  jobId: String,
+  jobUrl: String,
   company: String,
   position: String,
   location: String,
   applicationUrl: String,
+  applicationPlatform: String, 
   isActive: Boolean,
   endResult: {
     type: String,
