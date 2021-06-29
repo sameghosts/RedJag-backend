@@ -1,7 +1,6 @@
 // Dependencies
 
 const mongoose =require('mongoose');
-const { NUMBER } = require('sequelize/types');
 
 // Instantiate Schema
 const Schema = mongoose.Schema;
@@ -11,7 +10,7 @@ const options = {
 }
 
 //education subschema
-const userSchoolsSchema = new this.schema({
+const userSchoolsSchema = new Schema({
   schoolName: String,
   degree: String,
   gradYear: Number,

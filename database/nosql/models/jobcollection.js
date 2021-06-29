@@ -1,6 +1,10 @@
 // Dependencies
 
-//Instatiate Schema
+const mongoose =require('mongoose');
+
+// Instantiate Schema
+const Schema = mongoose.Schema;
+
 //Options
 
 //Job Subschema

@@ -21,4 +21,6 @@ MONGOOSE.connection.once('open', () =>{
 //console log on error
 MONGOOSE.connection.on('error', err => console.log(`❌ Connection failed`, err))
 
+//TODO: export JobJournal, JobCollection, Todo when complete
+
 module.exports.user = require('./user')
