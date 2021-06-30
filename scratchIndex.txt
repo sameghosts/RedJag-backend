@@ -1,8 +1,10 @@
 # Steps to do for MVP goals of Job journal and User tomorrow:
 
 User Stuff
-  Define User queries
+  Define User queries 
+    Base queries XXXX
   Define User mutations
+    Base Registration mutation def XXXX
   write user resolvers
 
 JobJournal stuff

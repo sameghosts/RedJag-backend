@@ -86,6 +86,26 @@ const user = gql`
     honorsAwards: String
   }
 
+# User Queries
+extend type Query {
+  #test
+  testUserResolvers: String
+  #login
+    #### Auth loc this Eventually!!!!
+  loginUser: (username: String!, password:String!)
+  #profile
+  getUserProfile: (username: String!)
+
+  #here or elsewhere:
+    # User Journal, User Collection, UserTodo
+}
+
+# User Mutations
+extend type Mutation {
+  #Register new user
+    #### Auth loc this Eventually!!!!
+  registerUser(newUser: UserInput!)
+}
 
 `
 
