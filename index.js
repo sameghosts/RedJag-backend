@@ -1,7 +1,7 @@
 //TODO: Install base dependencies and requirements
 require('dotenv').config();
 const EXPRESS = require('express');
-const { ApolloServer, gql } = require('apollo-server-express');
+const { ApolloServer } = require('apollo-server-express');
 
 //TODO: Set up GQL requirements
 const {
@@ -17,34 +17,37 @@ const {
 const app = EXPRESS();
 
 // Models for graphql server context
-const AppModels = require('./database/nosql/models');
+const AppModels = require('./models');
 // middleware
+const AuthMiddleware = require('./middleware/auth')
 //Add middleware after build
+// console.log(typeDefs, resolvers, schemaDirectives)
+
+// app.use(AuthMiddleware);
 
 //TODO: GraphQL Apollo server
 const SERVER = new ApolloServer({
   typeDefs: typeDefs,
   resolvers: resolvers,
-  schemaDirectives: schemaDirectives,
+  // schemaDirectives: schemaDirectives,
   playground: true,
-  //TODO: check and add in context
-  context: ({ req }) => {
-    let {
-      user,
-      isAuth,
-    } = req;
-    return{
-      req,
-      user,
-      isAuth,
-      ...AppModels,
-    }
-  }
+  // context: ({ req }) => {
+  //   let {
+  //     user,
+  //     isAuth,
+  //   } = req;
+  //   return{
+  //     req,
+  //     user,
+  //     isAuth,
+  //     ...AppModels,
+  //   }
+  // }
 });
 
 SERVER.applyMiddleware({
   app: app
-})
+});
 
 
 // Dummy API Home Route

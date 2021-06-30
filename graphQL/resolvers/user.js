@@ -8,12 +8,14 @@ const bcrypt = require('bcrypt')
 
 module.exports = {
   Query: {
-    testUserResolvers: () => {
+    test: () => {
       return 'Hello from the user resolver.'
     } 
   },
 
-  // Mutation: {
-
-  // }
+  Mutation: {
+    test: () => {
+      return 'test successful'
+    }
+  }
 }
