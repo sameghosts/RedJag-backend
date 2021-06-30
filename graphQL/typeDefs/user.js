@@ -36,7 +36,7 @@ const user = gql`
   extend type Mutation {
 #   #Register new user
 #     #### Auth loc this Eventually!!!!
-  # registerUser(newUser: UserInput!)
+  registerUser(newUser: UserInput!)
   test: String
   }   
   
