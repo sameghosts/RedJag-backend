@@ -24,7 +24,7 @@ const resolvers = require('./graphQL/resolvers')
 const app = EXPRESS();
 
 // Models for graphql server context
-// const AppModels = require('./models');
+const AppModels = require('./database/nosql/models');
 // middleware
 //Add middleware after build
 
@@ -34,7 +34,9 @@ const SERVER = new ApolloServer({
   resolvers: resolvers,
   playground: true,
   //TODO: check and add in context
-  // context: {}
+  context: {
+    ...AppModels
+  }
 
 });
 
