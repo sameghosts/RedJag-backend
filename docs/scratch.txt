@@ -1,0 +1,8 @@
+graphql docs for 
+
+User
+  Queries:
+    Login
+  
+  Mutations:
+    REGISTER_USER
