@@ -17,12 +17,17 @@ resolvers
 
 typeDefs 
   index
+    #### MVP requirements: 
     greeting -  for server spoof
-    user - 
-    search - 
-    jobs -
+    user - Created, Stubbed, 
+    jobs - Created, Stubbed,
+      job object 
+      JobCollections
+    journal - Created, Stubbed
+    
+    #### next steps: 
+
     todo - 
-    journal - 
     reminders -
 
 
