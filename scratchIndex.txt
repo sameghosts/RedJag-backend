@@ -1,0 +1,19 @@
+# Steps to do for MVP goals of Job journal and User tomorrow:
+
+User Stuff
+  Define User queries
+  Define User mutations
+  write user resolvers
+
+JobJournal stuff
+Define JobJournal TypeDefs
+define JJ queries
+Define JJ mutations
+define JJ resolvers
+
+Server General
+  AuthMiddleware
+  Helperfunctions
+  dotenv set up mongo Atlas and connect
+  Do initial user creation and auth login testing
+  Add auth middlware to user querys and mutations

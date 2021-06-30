@@ -4,7 +4,6 @@
 // ==== gql dependency from ASE
 const { gql } = require('apollo-server-express');
 
-//TODO: Create type defs 
 //TODO: Create Query's 
 //TODO: Create mutations
 const user = gql`
@@ -87,7 +86,7 @@ const user = gql`
     honorsAwards: String
   }
 
-  
+
 `
 
 module.exports = user;
