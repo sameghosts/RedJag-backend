@@ -17,6 +17,15 @@ const userSchoolsSchema = new Schema({
   honorsAwards: String
 })
 
+//Skill subSchema
+const userSkillSchema = new Schema ({
+    skillType: String,
+    skillName: String,
+    yearsExperience: Number,
+    workExperience: Boolean,
+    notes: String
+})
+
 
 //Profile SubSchema
 const userProfileSchema = new Schema({
@@ -30,10 +39,12 @@ const userProfileSchema = new Schema({
     jobTitle: String,
     jobType: String,
     jobLevel: String,
-    hardSkills: [String],
-    softSkills: [String],
+    skills: {
+      hardSkills: [userSkillSchema],
+      softSkills: [userSkillSchema],
+      techStack: [userSkillSchema],
+    }, 
     companyCulture: String,
-    techStack: [String],
     employmentType: String,
     payRange: String,
     notes: String
@@ -58,7 +69,7 @@ const userSchema = newSchema({
     type: String,
     required: true
   },
-  LastName: {
+  lastName: {
     type: String,
     required: true
   }, 
