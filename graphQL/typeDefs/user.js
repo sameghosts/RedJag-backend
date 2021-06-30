@@ -36,17 +36,23 @@ const user = gql`
   extend type Mutation {
 #   #Register new user
 #     #### Auth loc this Eventually!!!!
-  registerUser(newUser: UserInput!)
   test: String
+  registerUser(newUser: UserInput!): AuthUser!
   }   
   
-# #   Input schema for new user / registration
+  # Input schema for new user / registration
   input UserInput {
     email: String!
     username: String!
     firstName: String!
     lastName: String!
     password: String!
+  }
+
+  # AuthUser Type, login and register payload return
+  type AuthUser {
+    user: User!
+    token: String!
   }
 `
 module.exports = user;

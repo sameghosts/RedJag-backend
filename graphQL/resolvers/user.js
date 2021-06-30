@@ -1,7 +1,6 @@
 // ------ Dependencies
 const { ApolloError } = require('apollo-server-errors')
 const bcrypt = require('bcrypt')
-const { issueToken } = require('../../helper/UserAuth')
 
 // ------ Auth Middleware
 //TODO: Add back in after auth middlware written
