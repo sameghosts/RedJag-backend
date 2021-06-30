@@ -4,9 +4,48 @@
 // ==== gql dependency from ASE
 const { gql } = require('apollo-server-express');
 
-//TODO: Create type defs 
 //TODO: Create Query's 
 //TODO: Create mutations
-const journal = gql``
+const journal = gql`
+
+type Journal {
+  userId: String
+  userEmail: String
+  journalEntries: [JobEntry]
+}
+
+type JobEntry {
+  jobTitle: String
+  jobId: String
+  jobUrl: String
+  company: String
+  postion: String
+  location: String
+  applicationUrl: String
+  applicationPlatform: String
+  isActive: String
+  endResult: String
+  contacts: [Contact]
+}
+
+type Contact {
+  contactName: String
+  contactPostition: String
+  contactNumber: String
+  contactLinkedIn: String
+  notes: [String]
+  reminders: [Reminder]
+}
+type Reminder {
+  remindType: String
+  remindDate: Int
+}
+extend type Query {
+  journalQueryTest: String
+}
+extend type Mutation {
+  journalMutateTest: String
+}
+`
 
 module.exports = journal;
