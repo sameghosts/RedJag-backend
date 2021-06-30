@@ -72,8 +72,12 @@ const userSchema = newSchema({
     ref: 'JobJournal'
   }],
   jobCollection: [{
-    type:mongoose.Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'JobCollection',
+  }],
+  todoCollection: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'TodoCollection'
   }]
 }, options)
 

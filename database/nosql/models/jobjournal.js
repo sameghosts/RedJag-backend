@@ -5,10 +5,28 @@ const mongoose =require('mongoose');
 // Instantiate Schema
 const Schema = mongoose.Schema;
 
-//Options
+//Optionss
 const options = {
   timestamps: true
 }
+//Reminder subSchema
+const reminderSchema = new Schema ({
+  remindType: String,
+  remindDate: {
+    type: Date,
+    default: Date.now()
+  }
+})
+//Contact sub-subSchema
+const contactSchema = new Schema ({
+  contactName: String,
+  contactPostition: String,
+  contactNumber: Number,
+  contactEmail: String,
+  contactLinkedIn: String,
+  notes: [String],
+  reminder: [reminderSchema]
+})
 //Entry Subschema
 const jobEntrySchema = new Schema({
   jobTitle: String,
@@ -23,8 +41,8 @@ const jobEntrySchema = new Schema({
   endResult: {
     type: String,
     enum: ['pending', 'no', 'yes', 'maybe']
-  }
-
+  },
+  contacts: [contactSchema]
 
 })
 //Journal Schema

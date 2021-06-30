@@ -26,7 +26,8 @@ const jobPostingSchema = new Schema ({
     scheduleType: String
   },
   jobApiId: String, 
-  description: String
+  description: String,
+  applicationUrl: String
 })
 //Collection Schema
 const jobCollectionSchema = new Schema ({
