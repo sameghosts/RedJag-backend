@@ -8,6 +8,68 @@ const { gql } = require('apollo-server-express');
 //TODO: Create mutations
 const user = gql`
 
+  
+  # Input schema for new user / registration
+  # input UserInput {
+  #   email: String!
+  #   username: String!
+  #   firstName: String!
+  #   lastName: String!
+  # }
+
+#UserSchool Type
+# type userSchool {
+#     schoolName: String
+#     degree: String
+#     gradYear: Int
+#     honorsAwards: String
+#   }
+  
+  # UserLocData Type
+  # type UserLocData {
+  #   locationCity: String
+  #   locationState: String
+  #   locationAddress: String
+  #   locationZip: Int
+  # }
+
+  #skill type
+  # type Skill {
+  #   skillType: String
+  #   skillName: String
+  #   yearsExperience: Int
+  #   workExperience: Boolean
+  #   notes: String
+  # }
+
+  #skillset type
+  # type SkillSet {
+  #   hardSkills: [Skill]
+  #   softSkills: [Skill]
+  #   techStack: [Skill]
+  # }
+
+  # UserIdentityData Type
+  # type UserIdentityData {
+  #   jobTitle: String
+  #   jobType: String
+  #   jobLevel: String
+  #   skills: SkillSet
+  #   companyCulture: String
+  #   employmentType: String
+  #   payRange: String
+  #   notes: String
+  # }
+  
+
+  # UserProfile type
+  # type UserProfile {
+  #   userLocation: UserLocData
+  #   userIdentity: UserIdentityData
+  #   bio: String
+  #   education: [UserSchools]
+  # }
+  
   #User type for user module base def
   type User {
     id: ID!
@@ -15,76 +77,18 @@ const user = gql`
     username: String!
     firstName: String!
     lastName: String!
-    profile: UserProfile
-    jobJournal: JobJournal
-    jobCollection: JobCollection
-    todoCollection: TodoCollection
+    # profile: UserProfile
+    # jobJournal: JobJournal
+    # jobCollection: JobCollection
+    # todoCollection: TodoCollection
   }
 
-  #Input schema for new user / registration
-  input UserInput {
-    email: String!
-    username: String!
-    firstName: String!
-    lastName: String!
-  }
-  
   # Type auth user, for paylod to frontend
-  type AuthUser {
-    user: User!
-    token: String!
-  }
+  # type AuthUser {
+  #   user: User!
+  #   token: String!
+  # }
 
-  # UserProfile type
-  type UserProfile {
-    userLocation: UserLocData,
-    userIdentity: UserIdentityData,
-    bio: String,
-    education: [UserSchools]
-  }
-
-  # UserLocData Type
-  type UserLocData {
-    locationCity: String
-    locationState: String
-    locationAddress: String
-    locationZip: Int
-  }
-
-  # UserIdentityData Type
-  type UserIdentityData {
-    jobTitle: String
-    jobType: String
-    jobLevel: String
-    skills: SkillSet
-    companyCulture: String
-    employmentType: String
-    payRange: String
-    notes: String
-  }
-
-  #skillset type
-  type SkillSet {
-    hardSkills: [Skill]
-    softSkills: [Skill]
-    techStack: [Skill]
-  }
-
-  #skill type
-  type Skill {
-    skillType: String
-    skillName: String
-    yearsExperience: Int
-    workExperience: Boolean
-    notes: String
-  }
-  #UserSchool Type
-  type userSchool {
-    schoolName: String
-    degree: String
-    gradYear: Int
-    honorsAwards: String
-  }
 
 # User Queries
 extend type Query {
@@ -92,9 +96,9 @@ extend type Query {
   testUserResolvers: String
   #login
     #### Auth loc this Eventually!!!!
-  loginUser: (username: String!, password:String!)
+  # loginUser: (username: String!, password:String!)
   #profile
-  getUserProfile: (username: String!)
+  # getUserProfile: (username: String!)
 
   #here or elsewhere:
     # User Journal, User Collection, UserTodo
@@ -104,9 +108,8 @@ extend type Query {
 extend type Mutation {
   #Register new user
     #### Auth loc this Eventually!!!!
-  registerUser(newUser: UserInput!)
+  # registerUser(newUser: UserInput!)
 }
-
 `
 
 module.exports = user;

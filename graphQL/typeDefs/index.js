@@ -16,5 +16,5 @@ const schemaArray = [root, hello]
 // `;
 
 // Export
-module.exports = [root, hello];
+module.exports = [schemaArray];
 

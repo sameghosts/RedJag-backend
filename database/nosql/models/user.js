@@ -54,7 +54,7 @@ const userProfileSchema = new Schema({
 
 });
 //User Schema
-const userSchema = newSchema({
+const userSchema = new Schema({
   email: {
     type: String,
     required: true,

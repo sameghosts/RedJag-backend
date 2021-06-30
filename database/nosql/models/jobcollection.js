@@ -45,4 +45,4 @@ const jobCollectionSchema = new Schema ({
   appliedJobs: [jobPostingSchema],
 })
 //export
-module.exports = mongooose.model('JobCollection', jobCollectionSchema)
+module.exports = mongoose.model('JobCollection', jobCollectionSchema)

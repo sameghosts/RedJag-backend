@@ -4,20 +4,13 @@ const EXPRESS = require('express');
 const { ApolloServer, gql } = require('apollo-server-express');
 
 //TODO: Set up GQL requirements
-// const typeDefs = gql`
-// type Query {
-//   hello: String
-// }
-// `;
-
-// // Provide resolver functions for your schema fields
-// const resolvers = {
-// Query: {
-//   hello: () => 'Hello world!',
-// },
-// };
-const typeDefs = require('./graphQL/typeDefs')
-const resolvers = require('./graphQL/resolvers')
+const {
+  typeDefs,
+  resolvers
+} = require('./graphQL')
+const {
+  schemaDirectives
+} = require('./graphQL/directives')
 
 
 //TODO Instantiate App and structure
@@ -32,12 +25,21 @@ const AppModels = require('./database/nosql/models');
 const SERVER = new ApolloServer({
   typeDefs: typeDefs,
   resolvers: resolvers,
+  schemaDirectives: schemaDirectives,
   playground: true,
   //TODO: check and add in context
-  context: {
-    ...AppModels
+  context: ({ req }) => {
+    let {
+      user,
+      isAuth,
+    } = req;
+    return{
+      req,
+      user,
+      isAuth,
+      ...AppModels,
+    }
   }
-
 });
 
 SERVER.applyMiddleware({
