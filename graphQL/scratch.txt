@@ -45,3 +45,62 @@ user = gql`
 #user mutations
 
 `
+
+______________________________________
+======================================
+--------------------------------------
+======================================
+______________________________________
+Project Big Query and Mutations Chart
+
+===== USER 
+Queries: {
+LoginUser
+UserInfoAuth
+getLiuProfile
+getPubProfile
+getLiuLoc
+getLiuIdentity
+getSkillset [part of query param type - hard soft stack]
+}
+
+
+Mutations: {
+  
+}
+
+===== JOURNAL 
+Queries: {
+  AllEntries
+  EntryAtId
+  EntryContactAll
+  EntryContactID
+  getContactRemind
+  getContactNotes
+  getEntryRemind
+  getEntryNotes
+}
+
+
+Mutations: {
+
+}
+
+===== JOB 
+Queries: {
+AllFaved
+FavedByParam
+recentCache10
+recentCache50
+getAPISearch
+getAllApplied
+getFromAllifMatch
+getDataForAnalysis
+getNLPResults
+getNLPAtId
+}
+
+
+Mutations: {
+
+}

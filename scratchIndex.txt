@@ -19,3 +19,23 @@ Server General
   dotenv set up mongo Atlas and connect
   Do initial user creation and auth login testing
   Add auth middlware to user querys and mutations
+
+
+
+
+Mongo commands: 
+
+db
+   = this will show you which db you are connected to
+
+use [name of database]
+  = use is a keyword that will create a new database of that name or 
+
+db.collectionName.insert({
+  key: "value",
+  otherKey: "value value",
+  key1: "foo",
+  foo: "bar"
+})
+
+"db.[collectionName].insert({})" = using this command you can write to your database. in the quoted example here you would use the hard brackets, just replace the whole thing including the brackets with the desired database collection name and it will work. Inside the curly brackets, as seen in the example above you can add any number of key value pairs separated by commas. 
