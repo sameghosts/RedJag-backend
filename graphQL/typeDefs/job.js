@@ -7,6 +7,6 @@ const { gql } = require('apollo-server-express');
 //TODO: Create type defs 
 //TODO: Create Query's 
 //TODO: Create mutations
-const jobs = gql``
+const job = gql``
 
-module.exports = jobs;
+module.exports = job;
