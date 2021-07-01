@@ -20,14 +20,47 @@ const jobPostingSchema = new Schema ({
     type: String,
     required: true,
   },
+  location: {
+    type: String,
+    require: true
+  },
   via: String,
+  description: String,
   detectedExtensions: {
     postedAt: String,
-    scheduleType: String
+    scheduleType: String,
+    workFromHome: String
   },
   jobApiId: String, 
-  description: String,
-  applicationUrl: String
+  applicationUrl: String,
+  jobURI: String,
+  companyURI: String,
+
+})
+
+const dataSetNLP = new Schema({
+  setName: String,
+  setDate: {
+    type: Date,
+    default: Date.now()
+  },
+  analysisType: String,
+  collectionSize: Number,
+  collectionTimeline: String,
+  cacheUserIdent: Array,
+  jobSet: [jobPostingSchema]
+  
+})
+const resultSetNLP = new Schema({
+  analysisType: String,
+  analysisDate: {
+    type: Date,
+    default: Date.now()
+  },
+  nlpImgURI: String,
+  nlpSingle: [String],
+  nlpDouble: [String],
+  nlpTripple: [String]
 })
 //Collection Schema
 const jobCollectionSchema = new Schema ({
@@ -39,10 +72,13 @@ const jobCollectionSchema = new Schema ({
     type: String,
     required: true
   },
-  lastJobSearchCache: [jobPostingSchema],
+  recentCache10: [jobPostingSchema],
+  recentCache60: [jobPostingSchema],
   fullSearchCache: [jobPostingSchema],
-  savedJobs: [jobPostingSchema],
+  faveJobs: [jobPostingSchema],
   appliedJobs: [jobPostingSchema],
+  dataSeshNLP: [dataSetNLP],
+  resultsNLP: [resultSetNLP]
 })
 //export
 module.exports = mongoose.model('JobCollection', jobCollectionSchema)
