@@ -9,6 +9,7 @@ const Schema = mongoose.Schema;
 const options = {
   timestamps: true
 }
+
 //Reminder subSchema
 const reminderSchema = new Schema ({
   remindType: String,
@@ -17,6 +18,18 @@ const reminderSchema = new Schema ({
     default: Date.now()
   }
 })
+
+// Note subSchema
+const noteSchema = new Schema ({
+  noteName: String,
+  noteBody: String,
+  noteDate: {
+    type: Date,
+    default: Date.now()
+  }
+})
+
+
 //Contact sub-subSchema
 const contactSchema = new Schema ({
   contactName: String,
@@ -24,9 +37,10 @@ const contactSchema = new Schema ({
   contactNumber: Number,
   contactEmail: String,
   contactLinkedIn: String,
-  notes: [String],
-  reminder: [reminderSchema]
+  contactNotes: [noteSchema],
+  contactReminders: [reminderSchema]
 })
+
 //Entry Subschema
 const jobEntrySchema = new Schema({
   jobTitle: String,
@@ -42,9 +56,11 @@ const jobEntrySchema = new Schema({
     type: String,
     enum: ['pending', 'no', 'yes', 'maybe']
   },
-  contacts: [contactSchema]
-
+  contacts: [contactSchema],
+  entryReminders: [reminderSchema],
+  entryNotes: [noteSchema]
 })
+
 //Journal Schema
 const journalSchema = new Schema({
   userId: {

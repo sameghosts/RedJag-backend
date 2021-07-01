@@ -26,6 +26,8 @@ type JobEntry {
   isActive: String
   endResult: String
   contacts: [Contact]
+  entryReminders: [Reminder]
+  entryNotes: [Note]
 }
 
 type Contact {
@@ -33,12 +35,17 @@ type Contact {
   contactPostition: String
   contactNumber: String
   contactLinkedIn: String
-  notes: [String]
-  reminders: [Reminder]
+  contactNotes: [Note]
+  contactReminders: [Reminder]
 }
 type Reminder {
   remindType: String
   remindDate: Int
+}
+type Note {
+  noteName: String
+  noteBody: String
+  noteDate: Int
 }
 extend type Query {
   journalQueryTest: String
