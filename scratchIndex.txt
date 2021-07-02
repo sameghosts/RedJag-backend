@@ -39,3 +39,30 @@ db.collectionName.insert({
 })
 
 "db.[collectionName].insert({})" = using this command you can write to your database. in the quoted example here you would use the hard brackets, just replace the whole thing including the brackets with the desired database collection name and it will work. Inside the curly brackets, as seen in the example above you can add any number of key value pairs separated by commas. 
+
+
+######______FRI JUL 02 Sprint 3 day 5
+
+ = > Baseline TypeDefs for job/Collection complete
+
+ Todo:
+ = > Add Date Created / Updated to major dataobjects bc timestamps
+ = > Check date formating scalar mongo vs graphql
+    = > figure out a plan for handling UNIX time conversions vs UI 
+ = > Bring in Resolovers
+    = > Resolver scale for mvp
+    = > Function Calls
+    = > input/type form
+    = > bring in sketch/psuedo of resolver fuctions:
+      = > User
+      = > Journal
+      = > Job Collection
+
+
+
+
+ = > 
+ = > 
+ = > 
+ = > 
+ = > 

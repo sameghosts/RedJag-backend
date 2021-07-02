@@ -34,7 +34,7 @@ const jobPostingSchema = new Schema ({
   jobApiId: String, 
   applicationUrl: String,
   jobURI: String,
-  companyURI: String,
+  companyURI: String
 
 })
 
