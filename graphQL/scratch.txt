@@ -45,6 +45,15 @@ user = gql`
 #user mutations
 
 `
+##Todo 
+- [] Add Mutations 
+- [] Go Through Q n M for MVP Scope
+- [] Move over Mutations
+- [] Move over psuedo
+- [] push resolver functionality for 3 models
+
+
+
 
 ______________________________________
 ======================================
