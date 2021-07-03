@@ -75,8 +75,15 @@ getSkillset [part of query param type - hard soft stack]
 
 
 Mutations: {
-  
-}
+  RegisterUser - Registers the user / Read 2 User
+  UpdateProfile - Update profile
+  UpdateLoc - update location
+  AddSkill - adds a skill see below about input and write
+  update skill - make skill input object, comes with extra parameter for if hard soft or stack
+  createJournalonUser
+  CreateCollectionOnUser
+  }
+
 
 ===== JOURNAL 
 Queries: {
@@ -92,6 +99,18 @@ Queries: {
 
 
 Mutations: {
+addJournal
+addJournalEntry
+updateEntry
+delEntry
+addNotesEntry
+updateNotesEntry
+addContact
+addReminder
+addNotesContact
+updateNotesContact
+updateReminder
+delReminder
 
 }
 
@@ -111,5 +130,14 @@ getNLPAtId
 
 
 Mutations: {
+saveSearchSession
+faveJob
+unFaveJob
+addAppliedandPushJournal
+saveNLPdataSet
+createNLP
+saveNLPInstance
+clearUpdate10Cache
+clearUpdate60Cache
 
 }
