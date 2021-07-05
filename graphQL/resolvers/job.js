@@ -3,8 +3,10 @@ const { ApolloError } = require('apollo-server-errors')
 const bcrypt = require('bcrypt')
 
 // ------ Auth Middleware
-//TODO: Add back in after auth middlware written
+//TODO: Add back in after auth control flow written
 // const { issueToken, serializedUser } = require('../../helper/UserAuth');
+
+//TODO: Adding job objects
 
 module.exports = {
   Query: {
@@ -37,6 +39,34 @@ module.exports = {
         let result = await JobCollection.create(newUserCollection);
         return result; 
       } catch (err) {
+        throw new ApolloError(err.message, 404)
+      }
+    },
+    addJobsWithType: async (
+      _,
+      { newJobDump },
+      { JobCollection }
+    ) => {
+      try {
+        if (newJobDump.type === "recentCache10"){
+          let collection = await JobCollection.findByIdAndUpdate(
+            {_id: newJobDump.id }, 
+            { 
+              recentCache10: [...recentCache10, ...newJobDump.dump]
+            }
+          );
+          return collection
+        } else if (newJobDump.type === "faveJobs"){
+          let collection = await JobCollection.findByIdAndUpdate(
+            {_id: newJobDump.id }, 
+            { 
+              faveJobs: [...faveJobs, ...newJobDump.dump]
+            }
+          );
+          return collection
+        }
+
+      } catch (err){
         throw new ApolloError(err.message, 404)
       }
     }

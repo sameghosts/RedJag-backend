@@ -104,8 +104,8 @@ Queries: {
 
 
 Mutations: {
-*** [] addJournal
-*** [] addJournalEntry
+*** [x] addJournal
+*** [x] addJournalEntry
 *** [] updateEntry
 *** [] delEntry
 *** [] addEntryNotes
@@ -140,6 +140,8 @@ getFromAllifMatch
 
 
 Mutations: {
+*** [x] CreateCollection
+*** [x] addJobs (which can be more specific made into search sesh)
 *** [] saveSearchSession
 *** [] faveJob
 *** [] unFaveJob

@@ -31,6 +31,7 @@ const job = gql`
   extend type Mutation {
     jobMutateTest: String
     createJobCollection(newUserCollection: CollectionInput): JobCollection!
+    addJobsWithType(newJobDump: JobPostInput):JobCollection!
   }
 
   ####Input types
@@ -38,9 +39,30 @@ const job = gql`
     userEmail: String!
     userId: String
   }
-  # input JobPostInput {
-  #   dump: [JobPosting]
-  # }
+  input JobPayloadInput {
+    collectionID: String!
+    type: String!
+    dump: [JobPostingInput]
+    }
+  input JobPostingInput {
+    title: String!
+    companName: String!
+    location: String!
+    via: String
+    description: String
+    detectectedExtensions: InputExtensions
+    jobApiId: String
+    applicationUrl: String
+    jobURI: String
+    companyURI: String
+    createdAt: String
+    updatedAt: String
+  }
+  input InputExtensions {
+      postedAt: String
+      scheduleType: String
+      workFromHome: String
+  }
 
 
 

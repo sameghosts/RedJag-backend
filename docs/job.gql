@@ -1,0 +1,38 @@
+# test query
+query JOBQUERYTEST {
+  jobQueryTest
+}
+#test mutation
+mutation JOBMUTATETEST {
+  jobMutateTest
+}
+# create collection
+mutation CREATE_USER_COLLECTION(
+  $userEmail: String!
+) {
+  createJobCollection(newUserCollection: {
+    userEmail: $userEmail
+	}
+  ){
+    id
+    userEmail
+    createdAt
+    updatedAt
+  }
+} 
+
+  # query variables 
+  {
+  "userEmail": "test2@test.com"
+  }
+  #payload return
+  {
+  "data": {
+    "createJobCollection": {
+      "id": "60e351fc26f9140aef73c5d9",
+      "userEmail": "test2@test.com",
+      "createdAt": "1625510396561",
+      "updatedAt": "1625510396561"
+    }
+  }
+}
