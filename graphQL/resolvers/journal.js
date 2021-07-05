@@ -23,14 +23,17 @@ module.exports = {
     createUserJournal: async (
       _,
       { newUserJournal }, 
-      { Journal },
+      { JobJournal },
+      { User }
     ) => {
-      let result = await Journal.create(newUserJournal);
-      await User.findOne({ email: newUserJournal.userEmail}).then(foundUser =>{
-        foundUser.jobJournal = result._id
-        foundUser.save()
-        console.log('added job journal to user successfully')
-      })
+      let result = await JobJournal.create(newUserJournal);
+      // let user = User.findOne({ email: newUserJournal.userEmail}).then(foundUser =>{
+      //   foundUser.jobJournal = result._id
+      //   foundUser.save()
+      //   console.log('added job journal to user successfully')
+      // })
+      // console.log(user) 
+      
       return result; 
 
     }

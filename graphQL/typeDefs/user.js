@@ -14,7 +14,7 @@ const user = gql`
       firstName: String
       lastName: String
       profile: UserProfile
-      #jobJournal: JobJournal
+      jobJournal: Journal
       #jobCollection: JobCollection
       #todoCollection: TodoCollection
       createdAt: String
