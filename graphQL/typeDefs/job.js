@@ -8,10 +8,10 @@ const { gql } = require('apollo-server-express');
 //TODO: Create Query's 
 //TODO: Create mutations
 const job = gql`
-
+  # main container
   type JobCollection {
     id: ID!
-    userId: String!
+    userId: String
     userEmail: String!
     recentCache10: [JobPosting]
     recentCache60: [JobPosting]
@@ -23,6 +23,26 @@ const job = gql`
     createdAt: String
     updatedAt: String
   }
+
+  extend type Query {
+    jobQueryTest: String
+  }
+
+  extend type Mutation {
+    jobMutateTest: String
+    # createJobCollection(newUserCollection: CollectionInput): Collection!
+  }
+
+  ####Input types
+  input CollectionInput {
+    userEmail: String!
+    userId: String
+  }
+  # input JobPostInput {
+
+  # }
+
+
 
   type JobPosting {
     id: ID!

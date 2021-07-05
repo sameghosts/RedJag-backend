@@ -8,10 +8,16 @@ const bcrypt = require('bcrypt')
 
 module.exports = {
   Query: {
-
+    // test query
+    jobQueryTest: () =>{
+      return 'Hello from the job query resolver. 😎'
+    },
   },
 
   Mutation: {
-    
+    // test Mutate
+    jobMutateTest: () =>{
+      return 'Hello from the job mutation resolver. 😎'
+    },
   }
 }
