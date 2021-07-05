@@ -39,7 +39,7 @@ const contactSchema = new Schema ({
   contactLinkedIn: String,
   contactNotes: [noteSchema],
   contactReminders: [reminderSchema]
-})
+}, options)
 
 //Entry Subschema
 const jobEntrySchema = new Schema({

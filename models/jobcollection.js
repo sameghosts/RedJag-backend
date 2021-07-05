@@ -36,7 +36,7 @@ const jobPostingSchema = new Schema ({
   jobURI: String,
   companyURI: String
 
-})
+}, options)
 
 const dataSetNLP = new Schema({
   setName: String,
@@ -50,7 +50,7 @@ const dataSetNLP = new Schema({
   cacheUserIdent: Array,
   jobSet: [jobPostingSchema]
   
-})
+}, options)
 const resultSetNLP = new Schema({
   analysisType: String,
   analysisDate: {
@@ -61,7 +61,7 @@ const resultSetNLP = new Schema({
   nlpSingle: [String],
   nlpDouble: [String],
   nlpTripple: [String]
-})
+}, options)
 //Collection Schema
 const jobCollectionSchema = new Schema ({
   userId: {
@@ -79,6 +79,6 @@ const jobCollectionSchema = new Schema ({
   appliedJobs: [jobPostingSchema],
   dataSeshNLP: [dataSetNLP],
   resultsNLP: [resultSetNLP]
-})
+}, options)
 //export
 module.exports = mongoose.model('JobCollection', jobCollectionSchema)
