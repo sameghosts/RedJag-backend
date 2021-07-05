@@ -8,14 +8,31 @@
 
 module.exports = {
   Query: {
+    //test query
     journalQueryTest: () =>{
       return 'Hello from the journal query resolver. 😎'
     }
   },
 
   Mutation: {
+    //Test mutation
     journalMutateTest: () =>{
       return 'Hello from the journal mutation resolver. 😎'
+    }, 
+    // createUserJournal - make a new user journal prior to loading entries
+    createUserJournal: async (
+      _,
+      { newUserJournal }, 
+      { Journal },
+    ) => {
+      let result = await Journal.create(newUserJournal);
+      await User.findOne({ email: newUserJournal.userEmail}).then(foundUser =>{
+        foundUser.jobJournal = result._id
+        foundUser.save()
+        console.log('added job journal to user successfully')
+      })
+      return result; 
+
     }
   }
 }

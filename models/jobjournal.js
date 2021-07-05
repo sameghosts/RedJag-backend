@@ -51,7 +51,10 @@ const jobEntrySchema = new Schema({
   location: String,
   applicationUrl: String,
   applicationPlatform: String, 
-  isActive: Boolean,
+  isActive: {
+    type: Boolean,
+    default: true
+  },
   endResult: {
     type: String,
     enum: ['pending', 'no', 'yes', 'maybe']

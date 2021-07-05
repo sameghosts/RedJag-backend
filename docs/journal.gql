@@ -1,0 +1,15 @@
+mutation CREATE_USER_JOURNAL(
+  $userEmail: String!
+) {
+  createUserJournal(
+    newUserJournal: {
+      $userEmail: $email
+    }
+  ) {
+    id
+    userEmail
+    journalEntries
+    createdAt
+    updatedAt
+  }
+}

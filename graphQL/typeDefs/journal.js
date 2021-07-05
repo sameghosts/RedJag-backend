@@ -10,7 +10,7 @@ const journal = gql`
 
 type Journal {
   id: ID!
-  userId: String!
+  userId: String
   userEmail: String!
   journalEntries: [JobEntry]
   createdAt: String
@@ -21,17 +21,34 @@ extend type Query {
 }
 extend type Mutation {
   journalMutateTest: String
+  createUserJournal(newUserJournal: JournalInput): Journal!
 }
+#### Input Types
+# Journal input 
+input JournalInput {
+  userEmail: String!
+  userId: String
+}
+
+input EntryInput {
+  jobTitle: String!
+  location: String!
+  applicationUrl: String!
+  applicationPlatform: String!
+  jobId: String
+  jobUrl: String
+}
+
 type JobEntry {
-  jobTitle: String
+  jobTitle: String!
   jobId: String
   jobUrl: String
   company: String
   postion: String
-  location: String
-  applicationUrl: String
-  applicationPlatform: String
-  isActive: String
+  location: String!
+  applicationUrl: String!
+  applicationPlatform: String!
+  isActive: Boolean
   endResult: String
   contacts: [Contact]
   entryReminders: [Reminder]
