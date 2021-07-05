@@ -22,6 +22,7 @@ extend type Query {
 extend type Mutation {
   journalMutateTest: String
   createUserJournal(newUserJournal: JournalInput): Journal!
+  addJournalEntry(newEntry: EntryInput): Journal
 }
 #### Input Types
 # Journal input 
@@ -31,23 +32,25 @@ input JournalInput {
 }
 
 input EntryInput {
-  jobTitle: String!
-  location: String!
-  applicationUrl: String!
-  applicationPlatform: String!
+  userEmail: String
+  jobTitle: String
+  location: String
+  company: String
+  applicationUrl: String
+  applicationPlatform: String
   jobId: String
   jobUrl: String
 }
 
 type JobEntry {
-  jobTitle: String!
+  jobTitle: String
   jobId: String
   jobUrl: String
   company: String
   postion: String
-  location: String!
-  applicationUrl: String!
-  applicationPlatform: String!
+  location: String
+  applicationUrl: String
+  applicationPlatform: String
   isActive: Boolean
   endResult: String
   contacts: [Contact]

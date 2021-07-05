@@ -3,7 +3,7 @@ mutation CREATE_USER_JOURNAL(
 ) {
   createUserJournal(
     newUserJournal: {
-      $userEmail: $email
+      $userEmail: $userEmail
     }
   ) {
     id
@@ -12,4 +12,42 @@ mutation CREATE_USER_JOURNAL(
     createdAt
     updatedAt
   }
+}
+
+mutation ADD_JOURNAL_ENTRY(
+  $userEmail: String,
+  $jobTitle: String,
+  $location: String,
+  $company: String,
+  $applicationUrl: String,
+  $applicationPlatform: String
+) {
+  addJournalEntry(
+    newEntry: {
+    userEmail: $userEmail,
+    jobTitle: $jobTitle,
+    location: $location,
+    company: $company,
+    applicationUrl: $applicationUrl,
+    applicationPlatform: $applicationPlatform
+    }
+  ) {
+    id
+    userEmail
+    journalEntries{
+      jobTitle
+      location
+      company
+    }
+    createdAt
+    updatedAt
+  }
+}
+{
+  "userEmail": "test2@test.com",
+  "jobTitle": "Junior Front-End Software Engineer",
+  "location": "San Francisco, CA",
+  "company": "Netflix",
+  "applicationUrl": "netflix.com/apply",
+  "applicationPlatform": "LinkedIn"
 }

@@ -52,7 +52,7 @@ const userProfileSchema = new Schema({
   bio: String,
   education: [userSchoolsSchema]
 
-});
+}, options);
 //User Schema
 const userSchema = new Schema({
   email: {

@@ -62,7 +62,7 @@ const jobEntrySchema = new Schema({
   contacts: [contactSchema],
   entryReminders: [reminderSchema],
   entryNotes: [noteSchema]
-})
+}, options)
 
 //Journal Schema
 const journalSchema = new Schema({
@@ -72,6 +72,6 @@ const journalSchema = new Schema({
   }, 
   userEmail: String,
   journalEntries: [jobEntrySchema]
-})
+}, options)
 //export
 module.exports = mongoose.model('JobJournal', journalSchema)
