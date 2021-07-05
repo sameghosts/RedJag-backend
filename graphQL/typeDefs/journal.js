@@ -16,7 +16,12 @@ type Journal {
   createdAt: String
   updatedAt: String
 }
-
+extend type Query {
+  journalQueryTest: String
+}
+extend type Mutation {
+  journalMutateTest: String
+}
 type JobEntry {
   jobTitle: String
   jobId: String
@@ -55,12 +60,6 @@ type Note {
   noteDate: Int
   createdAt: String
   updatedAt: String
-}
-extend type Query {
-  journalQueryTest: String
-}
-extend type Mutation {
-  journalMutateTest: String
 }
 `
 

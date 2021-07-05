@@ -5,10 +5,11 @@ const { gql } = require('apollo-server-express');
 const root = require('./root')
 const hello = require('./hello')
 const user = require('./user')
+const journal = require('./journal')
 
 // Array of imports for export
 // const schemaArray = [root, hello]
 
 // Export
-module.exports = [root, hello, user];
+module.exports = [root, hello, user, journal];
 
