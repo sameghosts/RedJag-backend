@@ -32,3 +32,27 @@ mutation REGISTER_USER(
   "password": "password123"
 
 }
+
+# Login User
+query LOGIN_USER(
+  $email: String!,
+  $password: String!
+){
+  loginUser(
+    email: $email,
+    password: $password
+  ){
+    token
+    user {
+      #removed id cause was throwing error? check database 
+      email
+      username
+    }
+  }
+  
+}
+# loginUser payload query variables
+# {
+#   "username": "test2",
+#   "password": super secret password you know
+# }

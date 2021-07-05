@@ -10,6 +10,7 @@ const { gql } = require('apollo-server-express');
 const job = gql`
 
   type JobCollection {
+    id: ID!
     userId: String!
     userEmail: String!
     recentCache10: [JobPosting]
@@ -19,9 +20,12 @@ const job = gql`
     appliedJobs: [JobPosting]
     dataSeshNLP: [JobPosting]
     resultsNLP: [JobPosting]
+    createdAt: String
+    updatedAt: String
   }
-  
+
   type JobPosting {
+    id: ID!
     title: String!
     companName: String!
     location: String!
@@ -32,6 +36,8 @@ const job = gql`
     applicationUrl: String
     jobURI: String
     companyURI: String
+    createdAt: String
+    updatedAt: String
   }
   type Extensions {
       postedAt: String
@@ -40,20 +46,28 @@ const job = gql`
   }
 
   type dataSetNLP {
+    id: ID
     setName: String
     setDate: Int
     analysisType: String
     collectionSize: Int
     collectionTimeline: String
     cacheUserIdent: UserIdentityData
+    jobSet: [JobPosting]
+    complete: Boolean
+    createdAt: String
+    updatedAt: String
   }
 
   type resultSetNLP {
+    id: ID
     analysisType: String
     analysisDate: Int
     nlpSingle: [String]
     nlpDouble: [String]
     nlpTripple: [String]
+    createdAt: String
+    updatedAt: String
   }
 
 `

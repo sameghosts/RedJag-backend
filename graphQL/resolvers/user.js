@@ -1,6 +1,6 @@
 // ------ Dependencies
 const { ApolloError } = require('apollo-server-errors')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
 
 // ------ Auth Middleware
 //TODO: Add back in after auth middlware written
@@ -8,9 +8,44 @@ const { issueToken, serializedUser } = require('../../helper/UserAuth');
 
 module.exports = {
   Query: {
+    // test query 
     test: () => {
       return 'Hello from the user resolver.'
-    } 
+    },
+    // Login user 
+    loginUser: async (_, {
+      username,
+      password
+    }, {
+      User
+    }) => {
+      try {
+
+        // find user by username
+        let user = await User.findOne({ username });
+        if (!user) {
+          throw new Error("Username not found.");
+        }
+        // check for the password using bcrypt
+        let isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+          throw new Error("Invalid password.");
+        }
+        // Serialize the User
+        user.id = user._id;
+        user = serializedUser(user.toObject());
+        // Issue New Authentication Token
+        let token = await issueToken(user);
+        //send back user and token
+        return {
+          user,
+          token
+        };
+      } catch (err) {
+        throw new ApolloError(err.message, 404);
+      }
+    }
+    
   },
 
   Mutation: {

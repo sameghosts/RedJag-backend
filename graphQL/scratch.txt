@@ -46,9 +46,12 @@ user = gql`
 
 `
 ##Todo 
-- [] Add Mutations 
+- [x] Add Mutations 
+- [x] Fix User 
 - [] Go Through Q n M for MVP Scope
-- [] Move over Mutations
+- [] Add ID values and C@/U@ values
+- [] Structure query logic
+- [] Move over Query n Mutations
 - [] Move over psuedo
 - [] push resolver functionality for 3 models
 
@@ -64,49 +67,55 @@ Project Big Query and Mutations Chart
 
 ===== USER 
 Queries: {
-LoginUser
-UserInfoAuth
-getLiuProfile
-getPubProfile
-getLiuLoc
-getLiuIdentity
+*** [ x ] LoginUser ***
+*** [] UserInfoAuth ***
+*** [] getLiuProfile ***
+*** [] getLiuLoc ***
+*** [] getLiuIdentity ***
 getSkillset [part of query param type - hard soft stack]
+getPubProfile
 }
 
 
 Mutations: {
-  RegisterUser - Registers the user / Read 2 User
-  UpdateProfile - Update profile
-  UpdateLoc - update location
+  *** [x] RegisterUser - Registers the user / write 2 User
+  *** [] UpdateProfile - Update profile
+  *** [] UpdateLoc - update location
+  *** [] createJournalonUser
+  *** [] CreateCollectionOnUser 
+
   AddSkill - adds a skill see below about input and write
   update skill - make skill input object, comes with extra parameter for if hard soft or stack
-  createJournalonUser
-  CreateCollectionOnUser
   }
 
 
 ===== JOURNAL 
 Queries: {
-  AllEntries
-  EntryAtId
-  EntryContactAll
+  *** [] AllEntries
+  *** [] EntryAtId
+  *** [] EntryContactAll
+  *** [] getEntryNotes
+  *** [] getEntryRemind
+
   EntryContactID
   getContactRemind
   getContactNotes
-  getEntryRemind
-  getEntryNotes
 }
 
 
 Mutations: {
-addJournal
-addJournalEntry
-updateEntry
-delEntry
-addNotesEntry
-updateNotesEntry
-addContact
-addReminder
+*** [] addJournal
+*** [] addJournalEntry
+*** [] updateEntry
+*** [] delEntry
+*** [] addEntryNotes
+*** [] updateEntryNotes
+*** [] addContact
+
+addEntryReminder
+updateEntryReminder
+delEntryReminder
+delContact
 addNotesContact
 updateNotesContact
 updateReminder
@@ -116,28 +125,29 @@ delReminder
 
 ===== JOB 
 Queries: {
-AllFaved
+*** [] getAPISearch
+*** [] recentCache10
+*** [] recentCache50
+*** [] AllFaved
+*** [] getAllApplied
+*** [] getDataForAnalysis
+*** [] getNLPResults
+*** [] getNLPAtId
+
 FavedByParam
-recentCache10
-recentCache50
-getAPISearch
-getAllApplied
 getFromAllifMatch
-getDataForAnalysis
-getNLPResults
-getNLPAtId
 }
 
 
 Mutations: {
-saveSearchSession
-faveJob
-unFaveJob
-addAppliedandPushJournal
-saveNLPdataSet
-createNLP
-saveNLPInstance
-clearUpdate10Cache
-clearUpdate60Cache
+*** [] saveSearchSession
+*** [] faveJob
+*** [] unFaveJob
+*** [] addAppliedandPushJournal
+*** [] saveNLPdataSet
+*** [] createNLP
+*** [] saveNLPInstance
+*** [] clearUpdate10Cache
+*** [] clearUpdate60Cache
 
 }

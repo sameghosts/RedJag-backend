@@ -9,9 +9,12 @@ const { gql } = require('apollo-server-express');
 const journal = gql`
 
 type Journal {
-  userId: String
-  userEmail: String
+  id: ID!
+  userId: String!
+  userEmail: String!
   journalEntries: [JobEntry]
+  createdAt: String
+  updatedAt: String
 }
 
 type JobEntry {
@@ -28,6 +31,8 @@ type JobEntry {
   contacts: [Contact]
   entryReminders: [Reminder]
   entryNotes: [Note]
+  createdAt: String
+  updatedAt: String
 }
 
 type Contact {
@@ -37,6 +42,8 @@ type Contact {
   contactLinkedIn: String
   contactNotes: [Note]
   contactReminders: [Reminder]
+  createdAt: String
+  updatedAt: String
 }
 type Reminder {
   remindType: String
@@ -46,6 +53,8 @@ type Note {
   noteName: String
   noteBody: String
   noteDate: Int
+  createdAt: String
+  updatedAt: String
 }
 extend type Query {
   journalQueryTest: String
