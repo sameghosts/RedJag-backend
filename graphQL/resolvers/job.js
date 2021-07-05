@@ -44,27 +44,37 @@ module.exports = {
     },
     addJobsWithType: async (
       _,
-      { newJobDump },
+      { newDump },
       { JobCollection }
     ) => {
       try {
-        if (newJobDump.type === "recentCache10"){
-          let collection = await JobCollection.findByIdAndUpdate(
-            {_id: newJobDump.id }, 
-            { 
-              recentCache10: [...recentCache10, ...newJobDump.dump]
-            }
-          );
-          return collection
-        } else if (newJobDump.type === "faveJobs"){
-          let collection = await JobCollection.findByIdAndUpdate(
-            {_id: newJobDump.id }, 
-            { 
-              faveJobs: [...faveJobs, ...newJobDump.dump]
-            }
-          );
-          return collection
-        }
+        
+        console.log(newDump)
+        console.log(newDump.userEmail)
+        let collection = await JobCollection.find(
+          {email: newDump.userEmail }
+        );
+        // let newfaveJobs = [dump, ...collection.faveJobs]
+          // collection.faveJobs = newfaveJobs 
+          // await collection.save()
+        return collection
+      // if (newJobDump.type === "recentCache10"){
+        //   let collection = await JobCollection.findByIdAndUpdate(
+        //     {_id: newJobDump.id }, 
+        //     { 
+        //       recentCache10: [...recentCache10, ...newJobDump.dump]
+        //     }
+        //   );
+        //   return collection
+        // } else if (newJobDump.type === "faveJobs"){
+        //   let collection = await JobCollection.findByIdAndUpdate(
+        //     {_id: newJobDump.id }, 
+        //     { 
+        //       faveJobs: [...faveJobs, ...newJobDump.dump]
+        //     }
+          // );
+          // return collection
+      // }
 
       } catch (err){
         throw new ApolloError(err.message, 404)

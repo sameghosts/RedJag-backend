@@ -36,3 +36,22 @@ mutation CREATE_USER_COLLECTION(
     }
   }
 }
+
+mutation ADD_JOBS_TYPE (
+  $collectionID: String!
+  $type: String!
+  $dump: String!
+) {addJobsWithType(
+  newJobDump: {
+    collectionID: $collectionID
+    type: $type
+    dump: $dump
+  }
+){
+  id
+  userEmail
+  faveJobs
+  createdAt
+  updatedAt
+}
+}

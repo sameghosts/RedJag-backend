@@ -48,6 +48,7 @@ module.exports = {
     ) => {
       try {
         // console.log(newEntry)
+        console.log(newEntry.userEmail)
         let journal = await JobJournal.findOne({userEmail: newEntry.userEmail});
         if (!journal) {
           throw new Error("Journal not found create one!")
