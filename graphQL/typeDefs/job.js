@@ -30,7 +30,7 @@ const job = gql`
 
   extend type Mutation {
     jobMutateTest: String
-    # createJobCollection(newUserCollection: CollectionInput): Collection!
+    createJobCollection(newUserCollection: CollectionInput): JobCollection!
   }
 
   ####Input types
@@ -39,13 +39,13 @@ const job = gql`
     userId: String
   }
   # input JobPostInput {
-
+  #   dump: [JobPosting]
   # }
 
 
 
   type JobPosting {
-    id: ID!
+    id: ID
     title: String!
     companName: String!
     location: String!

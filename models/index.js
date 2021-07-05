@@ -25,4 +25,4 @@ MONGOOSE.connection.on('error', err => console.log(`❌ Connection failed`, err)
 
 module.exports.User = require('./user')
 module.exports.JobJournal = require('./jobjournal')
-module.exports.UseJobCollection = require('./jobcollection')
+module.exports.JobCollection = require('./jobcollection')
