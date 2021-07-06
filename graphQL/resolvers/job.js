@@ -15,7 +15,6 @@ module.exports = {
     jobQueryTest: () =>{
       return 'Hello from the job query resolver. 😎'
     },
-<<<<<<< HEAD
     //Serpi query
     //   jobSerpiQuery(query: String!, location: String!): [JobPosting]
     jobSerpiQuery: async (
@@ -54,8 +53,6 @@ module.exports = {
         throw new ApolloError(err.message, 404)
       }
     }
-=======
->>>>>>> parent of c0978e5 (closest I can get to search working is console logging prepared payload)
   },
 
   Mutation: {
