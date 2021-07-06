@@ -10,7 +10,7 @@ const { gql } = require('apollo-server-express');
 const job = gql`
   # main container
   type JobCollection {
-    id: ID!
+    id: ID
     userId: String
     userEmail: String!
     recentCache10: [JobPosting]
@@ -32,7 +32,7 @@ const job = gql`
     jobMutateTest: String
     createJobCollection(newUserCollection: CollectionInput): JobCollection!
     # addJobsWithType(userEmail: String!, type: String!, dump: [JobPostingInput!]): JobCollection
-    addJobsWithType(newDump: JobPayloadInput!): JobCollection!
+    addJobsWithType(userEmail: String!, type: String!, dump: [JobPostingInput]): JobCollection!
   }
 
   ####Input types
@@ -46,11 +46,16 @@ const job = gql`
     type: String
     dump: [JobPostingInput]
   }
+  input JobPayloadTwo {
+    userEmail: String!
+    type: String
+    dump: String
+  }
 
   input JobPostingInput {
-    title: String
-    companyName: String
-    location: String
+    title: String!
+    companyName: String!
+    location: String!
     via: String
     description: String
     detectectedExtensions: InputExtensions
@@ -69,10 +74,10 @@ const job = gql`
 
 
   type JobPosting {
-    id: ID
+    id: ID!
     title: String!
     companyName: String!
-    location: String!
+    location: String
     via: String
     description: String
     detectectedExtensions: Extensions
@@ -84,6 +89,7 @@ const job = gql`
     createdAt: String
     updatedAt: String
   }
+
   type Extensions {
       postedAt: String
       scheduleType: String

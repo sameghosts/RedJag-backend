@@ -153,3 +153,49 @@ Mutations: {
 *** [] clearUpdate60Cache
 
 }
+
+addjobstype 
+[
+    {
+      "title": "Full Stack Engineer 1",
+      "companyName": "Google",
+      "location": "New York, NY",
+      "jobApiId": "as;dlkjaasdl;fjpoweirjpweoignpoasdfp"
+    },
+    {
+      "title": "Front End Engineer 1",
+      "companyName": "Amazon",
+      "location": "New York, NY",
+      "jobApiId": "werpouewrpoew"
+    }, 
+    {
+      "title": "Back End Engineer 1",
+      "companyName": "Capsule",
+      "location": "New York, NY",
+      "jobApiId": "asdl;kj;asdfasdfasdfsadfasldkf"
+    }
+    
+  ]
+
+  promise chain that writes to database 
+  JobCollection.find 
+        JobCollection.find(
+          {userEmail: userEmail }
+        ).then(collection =>{
+          let easyCol = collection[0]
+          if(easyCol.faveJobs.length <1 ){
+            easyCol.faveJobs = [...dump]
+            easyCol.save()
+            return easyCol
+          }
+          else if (easyCol.faveJobs.length > 1){
+            let newfaveJobs = [...easyCol.faveJobs, ...dump]
+            easyCol.faveJobs = newfaveJobs
+            // console.log(`easyCol zero post destruct dump ${easyCol}`)
+            easyCol.save()
+            return easyCol
+          }
+          }).catch(err =>{
+            throw new ApolloError(err.message, 404)
+
+          });

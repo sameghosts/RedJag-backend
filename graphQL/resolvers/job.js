@@ -44,41 +44,40 @@ module.exports = {
     },
     addJobsWithType: async (
       _,
-      { newDump },
+      { 
+        userEmail,
+        type,
+        dump
+      },
       { JobCollection }
     ) => {
-      try {
-        
-        console.log(newDump)
-        console.log(newDump.userEmail)
-        let collection = await JobCollection.find(
-          {email: newDump.userEmail }
-        );
-        // let newfaveJobs = [dump, ...collection.faveJobs]
-          // collection.faveJobs = newfaveJobs 
-          // await collection.save()
-        return collection
-      // if (newJobDump.type === "recentCache10"){
-        //   let collection = await JobCollection.findByIdAndUpdate(
-        //     {_id: newJobDump.id }, 
-        //     { 
-        //       recentCache10: [...recentCache10, ...newJobDump.dump]
-        //     }
-        //   );
-        //   return collection
-        // } else if (newJobDump.type === "faveJobs"){
-        //   let collection = await JobCollection.findByIdAndUpdate(
-        //     {_id: newJobDump.id }, 
-        //     { 
-        //       faveJobs: [...faveJobs, ...newJobDump.dump]
-        //     }
-          // );
-          // return collection
-      // }
+    
+        // console.log(userEmail)
+        // console.log(type)
+        // console.log(dump)
+        // console.log(newDump)
+        // console.log(newDump.userEmail)
+        try{
+          let result = await JobCollection.find({
+            userEmail: userEmail
+          });
+          console.log(result[0]);
+          if (result[0].faveJobs.length <1 ){
+            let newCollection= await JobCollection.create({ userEmail: userEmail
+            })
+            newCollection.faveJobs = [...dump]
+            return newCollection
+          } else if (result[0].faveJobs.length >1){
+            let destFaveJobs = [...result[0].faveJobs, ...dump]
+            result[0].faveJobs = destFaveJobs
+            return result[0]
+          }
 
-      } catch (err){
-        throw new ApolloError(err.message, 404)
-      }
+        } catch (err){
+          throw new ApolloError(err.message, 404)
+        }
+        
+    
     }
   }
 }
