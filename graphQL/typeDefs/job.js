@@ -22,7 +22,7 @@ const job = gql`
     resultsNLP: [JobPosting]
     createdAt: String
     updatedAt: String
-  }
+  }   
 
   extend type Query {
     jobQueryTest: String

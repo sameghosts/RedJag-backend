@@ -46,10 +46,10 @@ module.exports = {
             "results": `${resultsString}`} } 
         
           // console.log(response)
-          return response
+          return response.json()
           }
         // Show result as JSON
-        search.json(params, callback)
+        return search.json(params, callback)
       }
       catch (err) {
         throw new ApolloError(err.message, 404)
