@@ -12,5 +12,5 @@ const job = require('./job')
 // const schemaArray = [root, hello]
 
 // Export
-module.exports = [root, hello];
+module.exports = [];
 
