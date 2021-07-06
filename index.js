@@ -6,11 +6,11 @@ const { ApolloServer } = require('apollo-server-express');
 //TODO: Set up GQL requirements
 const {
   typeDefs,
-  resolvers
+  // resolvers
 } = require('./graphQL')
-const {
-  schemaDirectives
-} = require('./graphQL/directives')
+// const {
+//   schemaDirectives
+// } = require('./graphQL/directives')
 
 
 //TODO Instantiate App and structure
