@@ -20,10 +20,14 @@ type JobCollection {
   updatedAt: String
 }
 extend type Query {
-
+  jobQueryTest: String
+  jobSerpiQuery(userEmail: String, query: String!, location: String): SearchResult!
 }
 extend type Mutation {
-
+  jobMutateTest: String
+  createJobCollection(newUserCollection: CollectionInput): JobCollection!
+  addJobsWithType(userEmail: String!, type: String!, dump: [JobPostingInput]): JobCollection!
+  addJobsWithTypeString(userEmail: String!, type: String!, dump: String!): JobCollection!
 }
 #Input types
 input CollectionInput {
@@ -80,6 +84,10 @@ type Extensions{
   postedAt: String
   scheduleType: String
   workFromHome: String
+}
+
+type SearchResult {
+  results: String
 }
 
 type dataSetNLP{
