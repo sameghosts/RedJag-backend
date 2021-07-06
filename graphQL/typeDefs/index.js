@@ -1,6 +1,3 @@
-//TODO: Sketch out all the schema
-const { gql } = require('apollo-server-express');
-
 // Import Schema
 const root = require('./root')
 const hello = require('./hello')
@@ -12,5 +9,4 @@ const job = require('./job')
 // const schemaArray = [root, hello]
 
 // Export
-module.exports = [];
-
+module.exports = [root, hello];

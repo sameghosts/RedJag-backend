@@ -15,7 +15,7 @@ const issueToken = async (jwtPayload) => {
 const serializedUser = (user) => {
   return lodash.pick(user, ['id', 'username', 'email']);
 }
-asdf
+
 // const serializedCollection = (collection) => {
 //   return lodash(pick(collection ['id', 'userEmail', 'faveJobs']))
 // }

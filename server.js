@@ -29,19 +29,19 @@ const AuthMiddleware = require('./middleware/auth')
 const SERVER = new ApolloServer({
   typeDefs: typeDefs,
   resolvers: resolvers,
-  schemaDirectives: schemaDirectives,
+  // schemaDirectives: schemaDirectives,
   playground: true,
   context: ({ req }) => {
-    let {
-      user,
-      isAuth,
-    } = req;
-    return{
-      req,
-      user,
-      isAuth,
-      ...AppModels,
-    }
+    // let {
+    //   user,
+    //   isAuth,
+    // } = req;
+    // return{
+    //   req,
+    //   user,
+    //   isAuth,
+    //   ...AppModels,
+    // }
   }
 });
 
