@@ -26,7 +26,7 @@ const job = gql`
 
   extend type Query {
     jobQueryTest: String
-    jobSerpiQuery(userEmail: String, query: String!, location: String): SearchResult!
+    jobSerpiQuery(userEmail: String, query: String!, location: String!): SearchResult!
   }
 
   extend type Mutation {
