@@ -92,9 +92,17 @@ module.exports = {
           let result = await JobCollection.find({
             userEmail: userEmail
           });
-          console.log(result[0]);
-          let dumpParsed = JSON.parse(dump)
-          console.log(dumpParsed)
+          // console.log(`heres the result ${result[0]}`);
+          let parsed = await JSON.parse(dump)
+          console.log(parsed)
+          // JSON.parse(dump).forEach(job =>{
+          //   result[0].faveJobs.push(job)
+          // })
+          let combined = [...result[0].faveJobs, ...parsed]
+          result[0].faveJobs = combined;
+          console.log(result[0].faveJobs)
+          // let dumpParsed = JSON.parse(dump)
+          // console.log(`dumpParsed here 🚨⬇️ ${dumpParsed}`)
           return result[0]
         } catch (err){
           throw new ApolloError(err.message, 404)
