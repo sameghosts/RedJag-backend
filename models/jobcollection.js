@@ -73,8 +73,9 @@ const jobCollectionSchema = new Schema ({
     type: String,
     required: true
   },
-  recentCache10: [jobPostingSchema],
-  recentCache60: [jobPostingSchema],
+  recentCacheX: [jobPostingSchema],
+  recentCacheLX: [jobPostingSchema],
+  recentCacheC: [jobPostingSchema],
   fullSearchCache: [jobPostingSchema],
   faveJobs: [jobPostingSchema],
   appliedJobs: [jobPostingSchema],

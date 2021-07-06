@@ -90,39 +90,26 @@ module.exports = {
       { JobCollection }
     ) => {
         try{
+          // console.log(type)
           let result = await JobCollection.find({
             userEmail: userEmail
           });
           // console.log(`heres the result ${result[0]}`);
-          if (type === "faveJobs") {
+          
             let parsed = await JSON.parse(dump)
-            console.log(parsed)
+            // console.log(parsed)
             // JSON.parse(dump).forEach(job =>{
             //   result[0].faveJobs.push(job)
             // })
+            
             let combined = [...result[0].faveJobs, ...parsed]
             result[0].faveJobs = combined;
-            console.log(result[0].faveJobs)
+            // console.log(result[0].faveJobs)
+            // console.log(type)
             // let dumpParsed = JSON.parse(dump)
             // console.log(`dumpParsed here 🚨⬇️ ${dumpParsed}`)
             return result[0]
-          }
-          if (type === "recentCache10") {
-            let parsed = await JSON.parse(dump)
-            console.log(parsed)
-            let combined = [...result[0].recentCache10, ...parsed]
-            result[0].recentCache10 = combined;
-            console.log(result[0].faveJobs)
-            return result[0]
-          }
-          if (type === "fullSearchCache"){
-            let parsed = await JSON.parse(dump)
-            console.log(parsed)
-            let combined = [...result[0].faveJobs, ...parsed]
-            result[0].faveJobs = combined;
-            console.log(result[0].faveJobs)
-            return result[0]
-          }
+          
           
         } catch (err){
           throw new ApolloError(err.message, 404)

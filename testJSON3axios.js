@@ -62,8 +62,8 @@ const jobs = [
 
 
 let job2String = JSON.stringify(jobs)
-const userEmail = "test2@test.com"
-const type = "recentCache10"
+const userEmail = "test4@test.com"
+const type = "faveJobs"
 const dump = `${job2String}`
 // console.log(JSON.parse(dump))
 
@@ -80,14 +80,14 @@ axios.post('http://localhost:3001/graphql', {
         dump: $dump 
   ){
     id
-    faveJobs{
-      id
-      title
-      companyName
-      location
-      jobApiId
-    }
     userEmail
+    faveJobs { 
+        id
+        title
+        companyName
+        location
+        jobApiId
+      }
     createdAt
     updatedAt
   }

@@ -13,8 +13,9 @@ const job = gql`
     id: ID
     userId: String
     userEmail: String!
-    recentCache10: [JobPosting]
-    recentCache60: [JobPosting]
+    RecentCacheX: [JobPosting]
+    recentCacheLX: [JobPosting]
+    recentCacheC: [JobPosting]
     fullSearchCache: [JobPosting]
     faveJobs: [JobPosting]
     appliedJobs: [JobPosting]
