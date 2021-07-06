@@ -26,7 +26,10 @@ const job = gql`
 
   extend type Query {
     jobQueryTest: String
+<<<<<<< HEAD
     jobSerpiQuery(userEmail: String, query: String!, location: String): SearchResult!
+=======
+>>>>>>> parent of c0978e5 (closest I can get to search working is console logging prepared payload)
   }
 
   extend type Mutation {
@@ -72,9 +75,7 @@ const job = gql`
       workFromHome: String
   }
 
-  type SearchResult {
-    results: String
-  }
+
 
   type JobPosting {
     id: ID!

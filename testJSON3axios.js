@@ -62,11 +62,10 @@ const jobs = [
 
 
 let job2String = JSON.stringify(jobs)
-const userEmail = "test3@test.com"
+const userEmail = "test4@test.com"
 const type = "recentCache10"
 const dump = `${job2String}`
 // console.log(JSON.parse(dump))
-
 
 axios.post('http://localhost:3001/graphql', {
   query: `
@@ -81,11 +80,14 @@ axios.post('http://localhost:3001/graphql', {
         dump: $dump 
   ){
     id
-    userEmail
     faveJobs{
+      id
       title
-      company
+      companyName
+      location
+      jobApiId
     }
+    userEmail
     createdAt
     updatedAt
   }
@@ -98,7 +100,8 @@ axios.post('http://localhost:3001/graphql', {
 })
 .then((res => {
   // let jsonRes = res.json()
-  console.log(res.data.data.addJobsWithTypeString)
-  
+  console.log(res.data)
+  // console.log(`heyyyyyyy ${jsonRes}`)
+  console.log(res.data.faveJobs)
   }))
 .catch(err => console.log(err))

@@ -19,6 +19,7 @@ module.exports = {
   },
 
   Mutation: {
+    
     //Test mutation
     journalMutateTest: () =>{
       return 'Hello from the journal mutation resolver. 😎'
