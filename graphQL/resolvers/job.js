@@ -63,16 +63,11 @@ module.exports = {
             userEmail: userEmail
           });
           console.log(result[0]);
-          if (result[0].faveJobs.length <1 ){
-            let newCollection= await JobCollection.create({ userEmail: userEmail
-            })
-            newCollection.faveJobs = [...dump]
-            return newCollection
-          } else if (result[0].faveJobs.length >1){
             let destFaveJobs = [...result[0].faveJobs, ...dump]
             result[0].faveJobs = destFaveJobs
-            return result[0]
-          }
+            let newResult = result[0].save()
+            return newResult
+          
 
         } catch (err){
           throw new ApolloError(err.message, 404)
@@ -94,35 +89,20 @@ module.exports = {
             userEmail: userEmail
           });
           // console.log(`heres the result ${result[0]}`);
-          if (type === "faveJobs") {
-            let parsed = await JSON.parse(dump)
+          // console.log(result[0])
+          // console.log(type)
+          let parsed = await JSON.parse(dump)
             console.log(parsed)
             // JSON.parse(dump).forEach(job =>{
             //   result[0].faveJobs.push(job)
             // })
-            let combined = [...result[0].faveJobs, ...parsed]
-            result[0].faveJobs = combined;
-            console.log(result[0].faveJobs)
+            let combined = [...result[0].recentCache60,...parsed]
+            result[0].recentCache60 = [...combined];
+            // console.log(result[0].faveJobs)
             // let dumpParsed = JSON.parse(dump)
             // console.log(`dumpParsed here 🚨⬇️ ${dumpParsed}`)
-            return result[0]
-          }
-          if (type === "recentCache10") {
-            let parsed = await JSON.parse(dump)
-            console.log(parsed)
-            let combined = [...result[0].recentCache10, ...parsed]
-            result[0].recentCache10 = combined;
-            console.log(result[0].faveJobs)
-            return result[0]
-          }
-          if (type === "fullSearchCache"){
-            let parsed = await JSON.parse(dump)
-            console.log(parsed)
-            let combined = [...result[0].faveJobs, ...parsed]
-            result[0].faveJobs = combined;
-            console.log(result[0].faveJobs)
-            return result[0]
-          }
+            let response = await result[0].save()
+            return response.data
           
         } catch (err){
           throw new ApolloError(err.message, 404)
