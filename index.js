@@ -23,7 +23,7 @@ const AuthMiddleware = require('./middleware/auth')
 //Add middleware after build
 // console.log(typeDefs, resolvers, schemaDirectives)
 
-app.use(AuthMiddleware);
+// app.use(AuthMiddleware);
 
 //TODO: GraphQL Apollo server
 const SERVER = new ApolloServer({
