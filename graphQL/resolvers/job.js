@@ -32,19 +32,20 @@ module.exports = {
         const params = {
           engine: "google_jobs",
           q: `${query}` ,
-          location: `${location}`,
+          // location: `${location}`,
           hl: "en"
         };
         
         const callback =  (data) => {
           // console.log(data['jobs_results']);
           let resultsString = JSON.stringify(data['jobs_results'])
+          console.log(resultsString)
           // console.log(data['jobs_results'])
           // let response = console.log(`${resultsString}`)
           let response = {"jobSerpiQuery": { 
             "results": `${resultsString}`} } 
         
-          console.log(response)
+          // console.log(response)
           return response
           }
         // Show result as JSON
