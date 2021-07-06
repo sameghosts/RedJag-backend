@@ -71,7 +71,6 @@ const job = gql`
       scheduleType: String
       workFromHome: String
   }
-  
   type JobPosting {
     id: ID!
     title: String!
