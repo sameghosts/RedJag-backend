@@ -85,20 +85,20 @@ const job2 = {
   ]
 }
 
-let job2String = JSON.stringify(job2)
+let job2String = JSON.stringify(jobs)
 
-// console.log(jobs)
+console.log(job2String)
 const API_URL = `http://localhost:3001/graphql`
 axios({
   url: API_URL,
   method: 'post',
   data: {
-    query: `mutation ADD_JOBS_TYPE (
+    query: `mutation ADD_JOBS_STRING (
       $userEmail: String!,
       $type: String!,
-      $dump: [JobPostingInput]
+      $dump: String!
     ) {
-      addJobsWithType(
+      addJobsWithTypeString(
           userEmail: $userEmail,
           type: $type,
           dump: $dump 
@@ -121,7 +121,7 @@ axios({
   variables: {
     "userEmail": "test2@test.com",
     "type": "faveJobs",
-    "dump": jobs
+    "dump": job2String
   }
 }).then((result) => {
   console.log(result)

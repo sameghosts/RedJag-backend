@@ -78,6 +78,29 @@ module.exports = {
         }
         
     
+    }, 
+    addJobsWithTypeString: async (
+      _,
+      { 
+        userEmail,
+        type,
+        dump
+      },
+      { JobCollection }
+    ) => {
+        try{
+          let result = await JobCollection.find({
+            userEmail: userEmail
+          });
+          console.log(result[0]);
+          let dumpParsed = JSON.parse(dump)
+          console.log(dumpParsed)
+          return result[0]
+        } catch (err){
+          throw new ApolloError(err.message, 404)
+        }
+        
+    
     }
   }
 }
