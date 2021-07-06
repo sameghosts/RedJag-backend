@@ -63,7 +63,7 @@ const jobs = [
 
 let job2String = JSON.stringify(jobs)
 const userEmail = "test2@test.com"
-const type = "faveJobs"
+const type = "recentCache10"
 const dump = `${job2String}`
 // console.log(JSON.parse(dump))
 

@@ -6,7 +6,8 @@ const bcrypt = require('bcrypt')
 //TODO: Add back in after auth control flow written
 // const { issueToken, serializedUser } = require('../../helper/UserAuth');
 
-//TODO: Adding job objects
+//TODO: Add Type logic for dump
+
 
 module.exports = {
   Query: {
@@ -93,17 +94,36 @@ module.exports = {
             userEmail: userEmail
           });
           // console.log(`heres the result ${result[0]}`);
-          let parsed = await JSON.parse(dump)
-          console.log(parsed)
-          // JSON.parse(dump).forEach(job =>{
-          //   result[0].faveJobs.push(job)
-          // })
-          let combined = [...result[0].faveJobs, ...parsed]
-          result[0].faveJobs = combined;
-          console.log(result[0].faveJobs)
-          // let dumpParsed = JSON.parse(dump)
-          // console.log(`dumpParsed here 🚨⬇️ ${dumpParsed}`)
-          return result[0]
+          if (type === "faveJobs") {
+            let parsed = await JSON.parse(dump)
+            console.log(parsed)
+            // JSON.parse(dump).forEach(job =>{
+            //   result[0].faveJobs.push(job)
+            // })
+            let combined = [...result[0].faveJobs, ...parsed]
+            result[0].faveJobs = combined;
+            console.log(result[0].faveJobs)
+            // let dumpParsed = JSON.parse(dump)
+            // console.log(`dumpParsed here 🚨⬇️ ${dumpParsed}`)
+            return result[0]
+          }
+          if (type === "recentCache10") {
+            let parsed = await JSON.parse(dump)
+            console.log(parsed)
+            let combined = [...result[0].recentCache10, ...parsed]
+            result[0].recentCache10 = combined;
+            console.log(result[0].faveJobs)
+            return result[0]
+          }
+          if (type === "fullSearchCache"){
+            let parsed = await JSON.parse(dump)
+            console.log(parsed)
+            let combined = [...result[0].faveJobs, ...parsed]
+            result[0].faveJobs = combined;
+            console.log(result[0].faveJobs)
+            return result[0]
+          }
+          
         } catch (err){
           throw new ApolloError(err.message, 404)
         }
