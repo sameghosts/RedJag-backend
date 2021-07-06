@@ -50,7 +50,13 @@ mutation ADD_JOBS_TYPE (
 ){
   id
   userEmail
-  faveJobs
+  faveJobs{
+    id
+    title
+    companyName
+    location
+    jobApiId
+  }
   createdAt
   updatedAt
 }

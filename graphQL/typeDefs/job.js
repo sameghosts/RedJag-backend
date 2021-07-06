@@ -26,6 +26,7 @@ const job = gql`
 
   extend type Query {
     jobQueryTest: String
+    jobSerpiQuery(userEmail: String, query: String!, location: String!): SearchResult!
   }
 
   extend type Mutation {
@@ -71,7 +72,9 @@ const job = gql`
       workFromHome: String
   }
 
-
+  type SearchResult {
+    results: String
+  }
 
   type JobPosting {
     id: ID!
