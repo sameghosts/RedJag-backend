@@ -7,7 +7,14 @@ const bcrypt = require('bcrypt')
 // const { issueToken, serializedUser } = require('../../helper/UserAuth');
 
 //TODO: Add Type logic for dump
-
+ //TODO: Figure out why this isn't working and refactor so user cannot create multiple collections and it adds collection ref to user
+        // let collection = await JobCollection.find({ userEmail: newUserCollection.userEmail});
+        // if (collection) {
+        //   // throw new Error("This user already has a collection! Try saving some jobs instead!")
+        //   return collection
+        // } else {
+          
+        // }
 
 module.exports = {
   Query: {
@@ -20,9 +27,8 @@ module.exports = {
     jobSerpiQuery: async (
       _,
       {
-        query,
-        location
-      }
+        query
+      },
     ) => {
       try {
         const search = new SerpApi.GoogleSearch(`${process.env.SERPI_KEY}`);
@@ -44,7 +50,7 @@ module.exports = {
             "results": `${resultsString}`} } 
         
           // console.log(response)
-          return response.json()
+          return response
           }
         // Show result as JSON
         return search.json(params, callback)
@@ -67,14 +73,7 @@ module.exports = {
       { JobCollection }
     ) =>{
       try {
-        //TODO: Figure out why this isn't working and refactor so user cannot create multiple collections and it adds collection ref to user
-        // let collection = await JobCollection.find({ userEmail: newUserCollection.userEmail});
-        // if (collection) {
-        //   // throw new Error("This user already has a collection! Try saving some jobs instead!")
-        //   return collection
-        // } else {
-          
-        // }
+
         let result = await JobCollection.create(newUserCollection);
         return result; 
       } catch (err) {

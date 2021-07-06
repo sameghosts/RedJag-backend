@@ -1,7 +1,7 @@
 {
   "name": "redjag-backend",
   "version": "1.0.0",
-  "description": "red jaguar product club backend / server",
+  "description": "red jaguar product club backend  server",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

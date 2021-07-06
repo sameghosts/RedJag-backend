@@ -71,9 +71,7 @@ const job = gql`
       scheduleType: String
       workFromHome: String
   }
-
-
-
+  
   type JobPosting {
     id: ID!
     title: String!
@@ -121,7 +119,6 @@ const job = gql`
     createdAt: String
     updatedAt: String
   }
-
 `
 
 module.exports = job;
