@@ -25,6 +25,7 @@
     "dotenv": "^10.0.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
+    "fs": "^0.0.1-security",
     "google-search-results-nodejs": "^2.0.1",
     "graphql": "^15.5.0",
     "jsonwebtoken": "^8.5.1",
