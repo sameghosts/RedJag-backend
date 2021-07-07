@@ -11,14 +11,15 @@ require('dotenv').config();
 
 //var for data storage and array pass
 const tempArr = []
-const apiURI = `${process.env.SERPI_KEY}`
+const apiURI = process.env.SERPI_KEY
 const SerpApi = require('google-search-results-nodejs');
-const search = new SerpApi.GoogleSearch(`why isn't my environmental variable not working????`);
+const search = new SerpApi.GoogleSearch(apiURI);
+
 
 const params = {
   engine: "google_jobs",
   google_domain: "google.com",
-  q: "product designer, texas"
+  q: "user research, austin texas"
 };
 
 const jsonReader = (filePath, cb) =>{
@@ -35,9 +36,9 @@ const jsonReader = (filePath, cb) =>{
   })
 }
 
-const callback = function(data) {
+const callbackRnW = function(data) {
   // console.log(data['jobs_results']);
-  jsonReader('../data/faveJobs.json', (err, jobs_results)=>{
+  jsonReader('../data/test.json', (err, jobs_results)=>{
     if (err){
       console.log('Error reading file:', err)
     }
@@ -52,6 +53,14 @@ const callback = function(data) {
   console.log(jobs_results)
 })
 }
+
+const callback = (data) => {
+  console.log(data)
+  fs.writeFile('../data/test.json', JSON.stringify(data['jobs_results']), (err) => {
+    if (err) console.log('Error writing file:', err)
+})
+}
+
 
 // Show result as JSON
 search.json(params, callback);
