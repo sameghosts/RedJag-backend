@@ -1,0 +1,5 @@
+Megan W - 
+Jenn Goldberg - 
+ryan kim - redirect issue updates, use effect updates looping 
+Erin O - working on coworking 
+Elizabeth - problems with react-calendar

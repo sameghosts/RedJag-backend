@@ -13,7 +13,7 @@ require('dotenv').config();
 const tempArr = []
 const apiURI = process.env.SERPI_KEY
 const SerpApi = require('google-search-results-nodejs');
-const search = new SerpApi.GoogleSearch(apiURI);
+const search = new SerpApi.GoogleSearch();
 
 
 const params = {
